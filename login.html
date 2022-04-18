@@ -9,12 +9,30 @@
   <body>
     <h1>Login</h1>
 
-    <form>
+    <form method="post">
       <label for="email">Email: </label>
       <input type="text" id="email" name="email" />
       <label for="password">Password: </label>
       <input type="password" id="password" name="password" />
-      <button type="submit">Login</button>
+      <button type="submit" id="login">Login</button>
     </form>
+
+    <script>
+      const iEmail = document.getElementById('email')
+      const iPassword = document.getElementById('password')
+      const bLogin = document.getElementById('login')
+
+      const login = (event) => {
+        event.preventDefault()
+
+        if (iEmail.value === 'admin' && iPassword.value === 'admin') {
+          window.location.assign('index.html')
+        } else {
+          window.alert('Login failed')
+        }
+      }
+
+      bLogin.addEventListener('click', login)
+    </script>
   </body>
 </html>
